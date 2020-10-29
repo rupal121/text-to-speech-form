@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>form</title>
+	<style type="text/css">
+		#ru{
+			background-color: #A9A9A9;
+			background-image: url("../02.jpg");
+		  }
+		fieldset{
+			background-color: #2d85b0;
+			width: 42%;
+			margin: 0px 300px;
+			padding: 50px;
+		}
+		label{
+			margin: 20px;
+			padding: 20px;
+			margin-left: 20px;
+			font-size: 20px;
+
+		}
+	label:hover{
+			color: #B2B2B2;
+	}
+	h1{
+		text-align: center;
+	}
+	h2{
+		text-align: center;
+	}
+	button{
+		margin:20px 30px;
+		font-size: 15px;
+	}
+	#par{
+		font-size: 20px;
+		margin-left: 20px;
+	}
+	input{
+		font-size: 20px;
+		margin: 8px 15px;
+	}
+	</style>
+	<script type="text/javascript">function check(){
+	var e1 = document.getElementById('email1');
+	var e2 = document.getElementById('email2');
+	if (e1.value!=e2.value) {
+		alert("The two EMAILS must match!! ");
+	}
+}
+function nicknamefunction(){
+	if (document.getElementById('yesnick').checked) {
+		alert("Hey! bro,Fill your nickname");
+		document.getElementById('nick').style.display ="inline";
+		document.getElementById('nickname').setAttribute('required',true);
+	}
+	else
+	{
+		document.getElementById('nick').style.display="none";
+		document.getElementById('nickname').removeAttribute('required');
+	}
+}
+function fun(){
+	prompt("Hey bro! Whats your FAVORITE color ");
+}
+function openme() {
+	document.getElementById('par').style.display="block";
+	// body...
+}
+function closeme(){
+	document.getElementById('par').style.display ="none";
+}
+function message(){
+	document.getElementById('par').innerHTML='(+"You clicked on para"+)';
+}</script>
+</head>
+<body>
+	<div id="ru">
+<form id="reg">
+	<fieldset>
+		<h1>Form Verification</h1>
+	<label for="name">Name</label>
+	<input type="text" id="name" name="name" placeholder="Enter your name"><br/>
+	<label>Preferred Email:<input type="email" id="email1" name="email" required placeholder="abc@gmail.com"></label><br/>
+	<label>Repeat Email:<input type="email" id="email2" name="email" required placeholder="abc@gmail.com" onchange="check()"></label><br/>
+	<label for="yesnick">Nickname?:</label>
+		<input id="yesnick" name="nick" type="checkbox"  onchange="nicknamefunction()"><br/>
+		<div id="nick">
+			<label for="nickname">Nickname:</label>
+			<input type="text" name="nick" id="nickname"><br/>
+		</div>
+			<label>Mobile Number:</label>
+			<select id="ph">
+				<option>+91</option>
+				<option>+92</option>
+				<option>+93</option>
+				<option>+94</option>
+			</select>
+			<input type="number" name="mo.num" id="num"><br>
+	<label for="birth">Birth</label>
+	<input type="date" id="birth" value="birth"><br/>
+	<h2>Favorite Food</h2>
+	<label><input type="checkbox" name="Food" value="pizza">Pizza</label><br/>
+	<label><input type="checkbox" name="Food" value="burger">Burger</label><br/>
+	<label><input type="checkbox" name="Food" value="momos">Momos</label><br/>
+	<label><input type="checkbox" name="Food" value="spring roll">Spring Roll</label><br/>
+	<h2>Gender</h2>
+	<label><input type="radio" name="gender" value="male">Male</label><br/>
+	<label><input type="radio" name="gender" value="female">Female</label><br/>
+	<label><b>Range:</b><input type="range" name="range" ></label><br/>
+	<br>
+	<label><strong>Color:</strong><input type="color" name="color" onclick="fun()" ></label><br/>
+	<br>
+	<label>URL:<input type="URL" name="URL"></label><br/>
+	<br>
+	<label>Number:<input type="number" name="number" min="1" max="5" value="3"></label><br/>
+	<button type="button" onclick="openme()">OPEN ME!</button>
+	<button type="button" onclick ="closeme()">CLOSE ME!</button><br/>
+	<div id="par" onclick="message()">Thanks!For Verification.</div><br/>
+	<input type="submit" value="submit">
+	</fieldset>
+</form>
+</div>
+</body>
